@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/tailwind.min.css">
+    <link rel="stylesheet" href="./css/custom.css">
+    <script src="./js/alpine.min.js"></script>
+    <title>Home Page</title>
+</head>
+
+<body x-data="modal()" class="text-gray-900 antialiased">
+    <div class="flex flex-col w-11/12 mx-auto min-h-screen">
+        <div id="navbar" class="flex items-center justify-between py-5">
+            <figure>
+                <img src="./img/logo.svg" alt="Logo">
+            </figure>
+            <nav class="flex space-x-16">
+                <a href="./index.html" class="text-gray-500 hover:text-gray-900">Home</a>
+                <a href="./mural.html" class="text-gray-500 hover:text-gray-900">Mural de Recados</a>
+                <a href="./sobre.html" class="text-gray-500 hover:text-gray-900">Sobre</a>
+                <a href="./portifolio.html" class="text-gray-500 hover:text-gray-900">Portfólio</a>
+                <a href="./contato.html" class="text-gray-500 hover:text-gray-900">Contato</a>
+            </nav>
+            <button
+                @click="abrirModal"
+                class="text-blue-600 text-sm border border-blue-600 py-2 px-4 rounded hover:text-white hover:bg-blue-600 hover:border-none transition duration-200 ease-linear">
+                Créditos
+            </button>
+        </div>
+
+        <div class="flex flex-grow items-center py-10">
+            <div class="flex justify-center w-1/2">
+                <div class="w-3/4">
+                    <h1 class="font-bold text-6xl">
+                        A maneira mais fácil de criar seu site
+                    </h1>
+
+                    <ul class="mt-10 text-gray-500">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Templates limpos e simples
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Basta copiar e colar o código
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Fácil de usar
+                        </li>
+                    </ul>
+
+                    <div class="flex mt-10 p-3 border border-gray-400 rounded">
+                        <input class="p-3 mr-3 text-sm w-56" type="text" placeholder="Digite seu endereço de e-mail">
+                        <button class="flex-grow text-white text-sm border bg-blue-600 hover:bg-white hover:border-blue-600 hover:text-blue-600 p-3 rounded transition duration-200 ease-linear">
+                            Participar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <figure class="flex justify-center w-1/2">
+                <img src="./img/woman.jpg" class="rounded" width="400" alt="Mulher na cadeira de rodas">
+            </figure>
+        </div>
+    </div>
+
+    <div x-show="open" @click="open = false" class="min-w-screen h-screen fixed left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none"
+        style="background: rgba(0,0,0,.2);" id="modal">
+        <div class="w-full max-w-lg p-5 relative mx-auto my-auto rounded-xl shadow-lg bg-white ">
+            <div class="">
+                <div class="text-center p-5 flex-auto justify-center">
+                    <h2 class="text-xl font-bold py-4 ">
+                        Desenvolvimento de Software para WEB
+                    </h3>
+                    
+                    <p class="text-lg text-gray-500 px-8">
+                        Bebeto Alves da Costa
+                        <br>
+                        Vinny Barros Paiva
+                    </p>
+                </div>
+                <div class="p-3 mt-2 text-center space-x-4 md:block">
+                    <button
+                        @click="open = false"
+                        class="rounded bg-red-500 text-white text-sm px-4 py-2 hover:bg-red-600 shadow">
+                        Fechar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function modal()
+        {
+            return {
+                open: false,
+                abrirModal() {
+                    this.open = ! this.open
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
